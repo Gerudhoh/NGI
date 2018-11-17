@@ -80,10 +80,13 @@ savings_handler = CommandHandler('saving_strats', saving_strats);
 dispatcher.add_handler(savings_handler)
 ##################################################################   
 def echo(bot, update):
-    """Echo the user message."""
-    if update.message.text.lower() == "hello":
-    bot.sendMessage(chat_id=update.message.chat_id, text="Hello there!")
-    
+	"""Echo the user message."""
+	text = update.message.text.lower()
+	if text[9:13] == "tfsa":
+		bot.sendMessage(chat_id = update.message.chat_id, text = "A TSFA is a...")
+	else:
+		bot.sendMessage(chat_id=update.message.chat_id, text="Sorry, I don't understand your question :(")
+		
 dispatcher.add_handler(MessageHandler(Filters.text, echo))
 #################################################################
 #@bot.message_handler (content_types = ['text'])
