@@ -81,9 +81,10 @@ dispatcher.add_handler(savings_handler)
 ##################################################################   
 def echo(bot, update):
     """Echo the user message."""
-    bot.sendMessage(chat_id=update.message.chat_id, text=update.message.text)
+    if update.message.text.lower() == "hello":
+    bot.sendMessage(chat_id=update.message.chat_id, text="Hello there!")
     
-#dispatcher.add_handler(MessageHandler(Filters.text, echo))
+dispatcher.add_handler(MessageHandler(Filters.text, echo))
 #################################################################
 #@bot.message_handler (content_types = ['text'])
 #def text_handler(message):
