@@ -1,0 +1,9 @@
+c:\users\sophie mlodzik\documents\visual studio 2010\Projects\NGI Hackathon\NGI Hackathon\bin\Debug\NGI Hackathon.exe
+c:\users\sophie mlodzik\documents\visual studio 2010\Projects\NGI Hackathon\NGI Hackathon\bin\Debug\NGI Hackathon.pdb
+c:\users\sophie mlodzik\documents\visual studio 2010\Projects\NGI Hackathon\NGI Hackathon\bin\Debug\NGI Hackathon.xml
+c:\users\sophie mlodzik\documents\visual studio 2010\Projects\NGI Hackathon\NGI Hackathon\obj\x86\Debug\NGI_Hackathon.Form1.resources
+c:\users\sophie mlodzik\documents\visual studio 2010\Projects\NGI Hackathon\NGI Hackathon\obj\x86\Debug\NGI_Hackathon.Resources.resources
+c:\users\sophie mlodzik\documents\visual studio 2010\Projects\NGI Hackathon\NGI Hackathon\obj\x86\Debug\NGI Hackathon.vbproj.GenerateResource.Cache
+c:\users\sophie mlodzik\documents\visual studio 2010\Projects\NGI Hackathon\NGI Hackathon\obj\x86\Debug\NGI Hackathon.exe
+c:\users\sophie mlodzik\documents\visual studio 2010\Projects\NGI Hackathon\NGI Hackathon\obj\x86\Debug\NGI Hackathon.xml
+c:\users\sophie mlodzik\documents\visual studio 2010\Projects\NGI Hackathon\NGI Hackathon\obj\x86\Debug\NGI Hackathon.pdb

@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "NGI Hackathon", "NGI Hackathon\NGI Hackathon.vbproj", "{E9B2ACBF-B567-41B1-BAC9-C43612C5FF72}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E9B2ACBF-B567-41B1-BAC9-C43612C5FF72}.Debug|x86.ActiveCfg = Debug|x86
+		{E9B2ACBF-B567-41B1-BAC9-C43612C5FF72}.Debug|x86.Build.0 = Debug|x86
+		{E9B2ACBF-B567-41B1-BAC9-C43612C5FF72}.Release|x86.ActiveCfg = Release|x86
+		{E9B2ACBF-B567-41B1-BAC9-C43612C5FF72}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
