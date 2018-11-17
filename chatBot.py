@@ -5,6 +5,8 @@ import requests
 import telegram
 import logging
 
+from telegram.error import NetworkError
+
 from telegram.ext import Updater, CommandHandler
 
 #Get the Token:
@@ -21,7 +23,6 @@ dispatcher = updater.dispatcher
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                      level=logging.INFO)
-
 
 #Some text:
 promos = "Great Question!\n Out current promotions are... "
@@ -56,7 +57,7 @@ def promotions(bot, update):
     bot.sendMessage(chat_id=update.message.chat_id, text= promo2) #chequings account promo
     bot.sendMessage(chat_id=update.message.chat_id, text= promo3) #ipad promo
     bot.sendMessage(chat_id=update.message.chat_id, text= promo4) #student accnt promo
-    
+ 
 promo_handler = CommandHandler('promotions', promotions);
 dispatcher.add_handler(promo_handler)
 #WHAT IS BANKING?##################################################
@@ -75,19 +76,38 @@ def saving_strats(bot, update):
 savings_handler = CommandHandler('saving_strats', saving_strats);
 dispatcher.add_handler(savings_handler)
 ##################################################################   
-def echo(bot, update):
+def echo(bot):
     """Echo the user message."""
-    update.message.reply_text(update.message.text)
+    global update_id
+    # Request updates after the last update_id
+    for update in bot.get_updates(offset=update_id, timeout=10):
+        update_id = update.update_id + 1
+
+        if update.message:  # your bot can receive updates without messages
+            # Reply to the message
+            update.message.reply_text(update.message.text)
+		#	bot.sendMessage(chat_id=updt.message.chat_id, text=updt.message.text)
     
-##################################################################   
-def listener(messages):
-    """
-    When new messages arrive TeleBot will call this function.
-    """
-    for m in messages:
-        if m.content_type == 'text':
-            bot_text = m.text
-            bot.send_message(chat_id=update.message.chat_id, text= bot_text)   
-##################################################################
-updater.start_polling()
-updater.idle()
+
+#################################################################
+def main():
+	updater.start_polling()
+	updater.idle()
+
+	global update_id
+
+	try:
+		update_id = bot.get_updates()[0].update_id
+	except IndexError:
+		update_id = None
+
+	logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+	while True:
+			try:
+				#echo(bot)
+				bot.sendMessage(chat_id=updt.message.chat_id, text="Trying")
+			except NetworkError:
+				sleep(1)
+
+main()
