@@ -78,17 +78,16 @@ dispatcher.add_handler(savings_handler)
 ##################################################################   
 def echo(bot):
     """Echo the user message."""
+    print("In echo")
     global update_id
     # Request updates after the last update_id
     for update in bot.get_updates(offset=update_id, timeout=10):
         update_id = update.update_id + 1
 
-        if update.message:  # your bot can receive updates without messages
+        if update.message:
             # Reply to the message
-            update.message.reply_text(update.message.text)
-		#	bot.sendMessage(chat_id=updt.message.chat_id, text=updt.message.text)
-    
-
+            bot.sendMessage(chat_id=update.message.chat_id, text=update.message.text)
+            #update.message.reply_text(update.message.text
 #################################################################
 def main():
 	updater.start_polling()
@@ -105,8 +104,7 @@ def main():
 
 	while True:
 			try:
-				#echo(bot)
-				bot.sendMessage(chat_id=updt.message.chat_id, text="Trying")
+				echo(bot)
 			except NetworkError:
 				sleep(1)
 
