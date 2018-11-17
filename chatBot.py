@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 
+#	chatbot.py
+#	Developed by Julia Hohenadel
+
 import json
 import requests
 import telegram
