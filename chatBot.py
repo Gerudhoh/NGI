@@ -45,11 +45,14 @@ savings = savings0 + savings1 + savings2 + savings3
 tfsa = "a TFSA Tax-Free savings account is a saving plan to help you invest."
 tfsaPros = "PROS:\n - Account is tax-free"
 tfsaCons = "CONS:\n - There's a limit to how much you can add to it a year"
+
 resp = "an RESP is a Registered Education Saving Plan. Generally, your parents or grandparents pay money in it, and while you're still under 18 years old the government matches the money put into the account."
 respPros = "PROS:\n - Account is tax-free \n - Government matches money put in"
 respCons = "CONS:\n - Only eligible for students under 18 years of age."
-cmpInt = ""
-credit = ""
+
+credit = "A credit score is a number that represents your overall credit health. It indicates how likely you are to make payments on time or default on a loan."
+creditSc = "Higher credit scores mean you have demonstrated responsible credit behavior in the past, which may make potential lenders and creditors more confident when evaluating a request for credit."
+creditPitch = "Consider getting one of our RBC credit cards to build your crdit score today!\n https://www.rbcroyalbank.com/credit-cards/all-credit-cards.html#/student"
 
 confused = "Need clarification on any of the terms above? Ask me \"What's a ___\" and I'll try to help you figure it out!"
 
@@ -103,21 +106,12 @@ def echo(bot, update):
 		bot.sendMessage(chat_id = update.message.chat_id, text = cmpInt)
 	elif text[9:22] == "credit score":
 		bot.sendMessage(chat_id = update.message.chat_id, text = credit)
+		bot.sendMessage(chat_id = update.message.chat_id, text = creditSc)
+		bot.sendMessage(chat_id = update.message.chat_id, text = creditPitch)
 	else:
 		bot.sendMessage(chat_id=update.message.chat_id, text="Sorry, I don't understand your question :( Remember to type: \"What's a\"...")
 		
 dispatcher.add_handler(MessageHandler(Filters.text, echo))
-#################################################################
-#@bot.message_handler (content_types = ['text'])
-#def text_handler(message):
-	#textMsg = message.text.lower()
-	#chat_id = message.chat.id
-	
-	#if text == "hello":
-		#bot.sendMessage(chat_id=chat_id, text="Hello there!")
-	#else:
-		#bot.sendMessage(chat_id=chat_id, text="Sorry, I don't understand your question :(")
-
 
 updater.start_polling()
 updater.idle()
