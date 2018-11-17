@@ -6,8 +6,8 @@ import telegram
 import logging
 
 from telegram.error import NetworkError
-
-from telegram.ext import Updater, CommandHandler
+from time import sleep
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 #Get the Token:
 f = open("tok.txt", "r")
@@ -44,6 +44,9 @@ savings = savings0 + savings1 + savings2 + savings3
 
 confused = "Need clarification on any of the terms above? Ask me \"What's a ___\" and I'll try to help you figure it out!"
 
+#MAIN###############################################################
+
+
 #START##########################################################
 def start(bot, update):
     bot.sendMessage(chat_id=update.message.chat_id, text="Hi, I'm a banking helper bot! I make learning about banking quick and easy! Please ask me a question and I'll try my best to answer :) \n Type \'/\' for some quick info!")
@@ -76,36 +79,22 @@ def saving_strats(bot, update):
 savings_handler = CommandHandler('saving_strats', saving_strats);
 dispatcher.add_handler(savings_handler)
 ##################################################################   
-def echo(bot):
+def echo(bot, update):
     """Echo the user message."""
-    print("In echo")
-    global update_id
-    # Request updates after the last update_id
-    for update in bot.get_updates(offset=update_id, timeout=10):
-        update_id = update.update_id + 1
-
-        if update.message:
-            # Reply to the message
-            bot.sendMessage(chat_id=update.message.chat_id, text=update.message.text)
-            #update.message.reply_text(update.message.text
+    bot.sendMessage(chat_id=update.message.chat_id, text=update.message.text)
+    
+#dispatcher.add_handler(MessageHandler(Filters.text, echo))
 #################################################################
-def main():
-	updater.start_polling()
-	updater.idle()
+#@bot.message_handler (content_types = ['text'])
+#def text_handler(message):
+	#textMsg = message.text.lower()
+	#chat_id = message.chat.id
+	
+	#if text == "hello":
+		#bot.sendMessage(chat_id=chat_id, text="Hello there!")
+	#else:
+		#bot.sendMessage(chat_id=chat_id, text="Sorry, I don't understand your question :(")
 
-	global update_id
 
-	try:
-		update_id = bot.get_updates()[0].update_id
-	except IndexError:
-		update_id = None
-
-	logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-
-	while True:
-			try:
-				echo(bot)
-			except NetworkError:
-				sleep(1)
-
-main()
+updater.start_polling()
+updater.idle()
