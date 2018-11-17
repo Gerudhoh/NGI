@@ -42,6 +42,15 @@ savings3 = "- Download our app NOMI to find out where your money goes! This can 
 
 savings = savings0 + savings1 + savings2 + savings3
 
+tfsa = "a TFSA Tax-Free savings account is a saving plan to help you invest."
+tfsaPros = "PROS:\n - Account is tax-free"
+tfsaCons = "CONS:\n - There's a limit to how much you can add to it a year"
+resp = "an RESP is a Registered Education Saving Plan. Generally, your parents or grandparents pay money in it, and while you're still under 18 years old the government matches the money put into the account."
+respPros = "PROS:\n - Account is tax-free \n - Government matches money put in"
+respCons = "CONS:\n - Only eligible for students under 18 years of age."
+cmpInt = ""
+credit = ""
+
 confused = "Need clarification on any of the terms above? Ask me \"What's a ___\" and I'll try to help you figure it out!"
 
 #MAIN###############################################################
@@ -83,9 +92,19 @@ def echo(bot, update):
 	"""Echo the user message."""
 	text = update.message.text.lower()
 	if text[9:13] == "tfsa":
-		bot.sendMessage(chat_id = update.message.chat_id, text = "A TSFA is a...")
+		bot.sendMessage(chat_id = update.message.chat_id, text = tfsa)
+		bot.sendMessage(chat_id = update.message.chat_id, text = tfsaPros)
+		bot.sendMessage(chat_id = update.message.chat_id, text = tfsaCons)
+	elif text[9:13] == "resp" or text[10:14] == "resp":
+		bot.sendMessage(chat_id = update.message.chat_id, text = resp)
+		bot.sendMessage(chat_id = update.message.chat_id, text = respPros)
+		bot.sendMessage(chat_id = update.message.chat_id, text = respCons)
+	elif text[9:26] == "compound interest":
+		bot.sendMessage(chat_id = update.message.chat_id, text = cmpInt)
+	elif text[9:22] == "credit score":
+		bot.sendMessage(chat_id = update.message.chat_id, text = credit)
 	else:
-		bot.sendMessage(chat_id=update.message.chat_id, text="Sorry, I don't understand your question :(")
+		bot.sendMessage(chat_id=update.message.chat_id, text="Sorry, I don't understand your question :( Remember to type: \"What's a\"...")
 		
 dispatcher.add_handler(MessageHandler(Filters.text, echo))
 #################################################################
