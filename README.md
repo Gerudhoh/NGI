@@ -3,7 +3,7 @@ Hi!
 This is Millenial Money's (Team 12's) project for the NGI Hackathon sponsored by RBC.
 We ended up placing first with this! :D
 
-We're striving to increase finacial literacy in Canadian youth through creating experiences tailored for students.
+We're striving to increase financial literacy in Canadian youth through creating experiences tailored for students.
 
 Our goals are to help late-high school/univsersity students  educate themselves QUICKLY and EFFICENTLY!
 
