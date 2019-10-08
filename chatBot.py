@@ -97,17 +97,17 @@ dispatcher.add_handler(savings_handler)
 def echo(bot, update):
 	"""Echo the user message."""
 	text = update.message.text.lower()
-	if text[9:13] == "tfsa":
+	if "tfsa" in text:
 		bot.sendMessage(chat_id = update.message.chat_id, text = tfsa)
 		bot.sendMessage(chat_id = update.message.chat_id, text = tfsaPros)
 		bot.sendMessage(chat_id = update.message.chat_id, text = tfsaCons)
-	elif text[9:13] == "resp" or text[10:14] == "resp":
+	elif "resp" in text:
 		bot.sendMessage(chat_id = update.message.chat_id, text = resp)
 		bot.sendMessage(chat_id = update.message.chat_id, text = respPros)
 		bot.sendMessage(chat_id = update.message.chat_id, text = respCons)
-	elif text[9:26] == "compound interest":
+	elif "compound interest" in text:
 		bot.sendMessage(chat_id = update.message.chat_id, text = cmpInt)
-	elif text[9:22] == "credit score":
+	elif "credit score" in text:
 		bot.sendMessage(chat_id = update.message.chat_id, text = credit)
 		bot.sendMessage(chat_id = update.message.chat_id, text = creditSc)
 		bot.sendMessage(chat_id = update.message.chat_id, text = creditPitch)
