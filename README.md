@@ -20,3 +20,6 @@ http://woohyu.dev.fast.sheridanc.on.ca/Game/gameStart.html
 
 Talk to our bot!
 https://web.telegram.org/#/im?p=@NGI_G12_bot
+
+![A conversation with our bot, part 1](bot1.png)
+![A conversation with our bot, part 2](bot2.png | width = 50% hright = 50%)
